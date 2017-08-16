@@ -43,7 +43,7 @@ document.onkeyup = function(event) {
             if(userGuess === computerLetter) {
 
                 alert(userGuess + " was my letter.  You win!");
-                wins++
+                wins++;
                 reset();
             }
 
