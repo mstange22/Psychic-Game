@@ -16,10 +16,21 @@ var computerLetter = letters[Math.floor(Math.random() * letters.length)];
 
 // reset function for new game
 function reset() {
+
     guessedLetters = [];
     guessesString = "";
     guesses = 9;
-    computerLetter = letters[Math.floor(Math.random() * letters.length)]
+    computerLetter = letters[Math.floor(Math.random() * letters.length)];
+
+    var html =  //  "<p>You chose: " + userGuess + "</p>" +
+                //  "<p>Letter: " + computerLetter + "</p>" +
+                "<p>Wins: " + wins + "</p>" +
+                "<p>Losses: " + losses + "</p>" +
+                "<p>Guesses Left: 9</p>" +
+                "<p>Your Guesses so far: </p>";                  
+
+    // Set the inner HTML contents of the #game div to the html string
+    document.getElementById("game").innerHTML = html;
 }
 
 // This function is run whenever the user presses a key.
@@ -42,9 +53,9 @@ document.onkeyup = function(event) {
             // check to see if guess was right
             if(userGuess === computerLetter) {
 
-                alert(userGuess + " was my letter.  You win!");
+                // alert(userGuess + " was my letter.  You win!");
                 wins++;
-                reset();
+                setTimeout(reset, 1000);reset();
             }
 
             // not a win
@@ -55,9 +66,10 @@ document.onkeyup = function(event) {
                 // check to see if all guesses have been used
                 if (guesses === 0) {
 
-                    alert("You used all of your guesses. " + computerLetter + " was my letter.  You lose.");
+                    // alert("You used all of your guesses. " +
+                    //     computerLetter + " was my letter.  You lose.");
                     losses++;
-                    reset();
+                    setTimeout(reset, 1000);reset();
                 }
 
                 else {
@@ -82,14 +94,21 @@ document.onkeyup = function(event) {
         // build text to display in the div #game
         var html =  //  "<p>You chose: " + userGuess + "</p>" +
                     //  "<p>Letter: " + computerLetter + "</p>" +
-                    "<p>wins: " + wins + "</p>" +
-                    "<p>losses: " + losses + "</p>" +
+                    "<p>Wins: " + wins + "</p>" +
+                    "<p>Losses: " + losses + "</p>" +
                     "<p>Guesses Left: " + guesses + "</p>" +
-                    "</p>Your Guesses so far: " + guessesString + "</p>";                        
+                    "<p>Your Guesses so far: " + guessesString + "</p>";                  
 
         // Set the inner HTML contents of the #game div to the html string
-        document.querySelector("#game").innerHTML = html;
-
+        document.getElementById("game").innerHTML = html;
     }
-
 };
+
+$("#start-button").on("click", function() {
+    wins = 0;
+    losses = 0;
+    reset();
+    $("#start-button").html("reset");
+});
+
+// });
