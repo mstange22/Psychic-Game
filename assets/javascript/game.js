@@ -22,15 +22,13 @@ function reset() {
     guesses = 9;
     computerLetter = letters[Math.floor(Math.random() * letters.length)];
 
-    var html =  //  "<p>You chose: " + userGuess + "</p>" +
-                //  "<p>Letter: " + computerLetter + "</p>" +
-                "<p>Wins: " + wins + "</p>" +
-                "<p>Losses: " + losses + "</p>" +
-                "<p>Guesses Left: 9</p>" +
-                "<p>Your Guesses so far: </p>";                  
+    var initialHTML =  "<p>Wins: " + wins + "</p>" +
+                        "<p>Losses: " + losses + "</p>" +
+                        "<p>Guesses Left: 9</p>" +
+                        "<p>Your Guesses so far: </p>";                  
 
     // Set the inner HTML contents of the #game div to the html string
-    document.getElementById("game").innerHTML = html;
+    $("#game").html(initialHTML);
 }
 
 // This function is run whenever the user presses a key.
@@ -92,23 +90,21 @@ document.onkeyup = function(event) {
         }
 
         // build text to display in the div #game
-        var html =  //  "<p>You chose: " + userGuess + "</p>" +
-                    //  "<p>Letter: " + computerLetter + "</p>" +
-                    "<p>Wins: " + wins + "</p>" +
+        var html =  "<p>Wins: " + wins + "</p>" +
                     "<p>Losses: " + losses + "</p>" +
                     "<p>Guesses Left: " + guesses + "</p>" +
                     "<p>Your Guesses so far: " + guessesString + "</p>";                  
 
         // Set the inner HTML contents of the #game div to the html string
-        document.getElementById("game").innerHTML = html;
+        $("#game").html(html);
     }
 };
 
-$("#start-button").on("click", function() {
+$("#button").on("click", function() {
     wins = 0;
     losses = 0;
     reset();
-    $("#start-button").html("reset");
+    $("#start-prompt").html("Guess what letter I'm thinking of");
+    $("#start-prompt-2").html("\(Press any key to guess\)");
+    $("#button").html("Reset Score");
 });
-
-// });

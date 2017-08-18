@@ -1,22 +1,27 @@
- 		.col-md-4 p {
- 			background-color: #777777;
- 			color: white;
- 		}
+.col-md-4 p {
+	background-color: #777777;
+	color: white;
+}
 
- 		.col-md-8 {
- 			background-color: black;
- 			color: white;
- 		}
+.col-md-8 {
+	background-color: black;
+	color: white;
+}
 
- 		.jumbotron {
- 			margin: 0 auto;
- 			margin-top: 30px;
- 			margin-bottom: 30px;
- 			width: 95%;
- 			text-align: center;
- 			border: 2px solid black;
- 			border-radius: 5px;
- 		}
- 		body {
- 	
- 		}
+.jumbotron {
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 95%;
+	text-align: center;
+	border: 2px solid black;
+	border-radius: 5px;
+}
+
+h1 {
+	font-weight: bolder;
+}
+
+#start-prompt {
+	font-weight: bold;
+}
